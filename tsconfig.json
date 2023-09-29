@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",              /* Versión de ECMAScript a la que se compilará el código */
+      "module": "CommonJS",            /* Formato de módulo para Node.js */
+      "outDir": "./dist",              /* Directorio de salida para los archivos compilados */
+      "strict": true,                  /* Habilitar todas las opciones estrictas de TypeScript */
+      "esModuleInterop": true,         /* Permite la interoperabilidad con módulos CommonJS */
+      "skipLibCheck": true,            /* Omite la comprobación de tipos para archivos de declaración de librería */
+      "forceConsistentCasingInFileNames": true, /* Garantiza consistencia en los nombres de archivo (mayúsculas y minúsculas) */
+      "rootDir": "./src",              /* Directorio raíz de entrada para archivos TypeScript */
+      "resolveJsonModule": true,       /* Habilita la importación de archivos JSON como módulos */
+      "declaration": true,             /* Genera archivos de declaración (.d.ts) */
+      "sourceMap": true               /* Genera archivos de mapas de origen (.js.map) para depuración */
+    },
+    "include": [
+      "./src/**/*.ts"                 /* Patrón de inclusión de archivos TypeScript */
+    ],
+    "exclude": [
+      "node_modules"                  /* Directorio(s) a excluir del proceso de compilación */
+    ]
+  }
+  
