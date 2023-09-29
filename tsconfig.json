@@ -10,7 +10,11 @@
       "rootDir": "./src",              /* Directorio raíz de entrada para archivos TypeScript */
       "resolveJsonModule": true,       /* Habilita la importación de archivos JSON como módulos */
       "declaration": true,             /* Genera archivos de declaración (.d.ts) */
-      "sourceMap": true               /* Genera archivos de mapas de origen (.js.map) para depuración */
+      "sourceMap": false,               /* Genera archivos de mapas de origen (.js.map) para depuración */
+      "isolatedModules": true, 
+      "moduleResolution":"node",
+      "noEmit": true,
+      "preserveConstEnums": true,
     },
     "include": [
       "./src/**/*.ts"                 /* Patrón de inclusión de archivos TypeScript */
