@@ -13,7 +13,7 @@
       "sourceMap": false,               /* Genera archivos de mapas de origen (.js.map) para depuración */
       "isolatedModules": true, 
       "moduleResolution":"node",
-      "noEmit": true,
+      "noEmit": false,
       "preserveConstEnums": true,
     },
     "include": [
