@@ -1,11 +1,11 @@
-import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 
-import { functionResponseProp } from "./interfaces";
+import { functionResponseProp } from './interfaces';
 
 export const Function = {
   endpoint:
     (
-      callback: (event: APIGatewayProxyEvent) => Promise<functionResponseProp>
+      callback: (event: APIGatewayProxyEvent) => Promise<functionResponseProp>,
     ) =>
     async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
       try {
@@ -13,9 +13,9 @@ export const Function = {
         return {
           statusCode: 200,
           headers: {
-            "Access-Control-Allow-Origin": "*", // Esto permite solicitudes desde cualquier origen
-            "Access-Control-Allow-Headers":
-              "Origin, X-Requested-With, Content-Type, Accept",
+            'Access-Control-Allow-Origin': '*', // Esto permite solicitudes desde cualquier origen
+            'Access-Control-Allow-Headers':
+              'Origin, X-Requested-With, Content-Type, Accept',
           },
           body: JSON.stringify({
             message,

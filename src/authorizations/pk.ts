@@ -1,8 +1,8 @@
 // creamos un metodo que valide el  bearer en el header
 
-import { AuthorizationProps, decodePkBearerProps } from './interfaces.js';
+import { AuthorizationProps, decodePkBearerProps } from './interfaces';
 
-import { regexPkKey } from '../validations/index.ts.js';
+import { regexPkKey } from '../validations/index.ts';
 
 export const decodePkBearer = (
   headers: AuthorizationProps,
