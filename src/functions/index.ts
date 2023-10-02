@@ -12,6 +12,11 @@ export const Function = {
         const { message, data } = await callback(event);
         return {
           statusCode: 200,
+          headers: {
+            "Access-Control-Allow-Origin": "*", // Esto permite solicitudes desde cualquier origen
+            "Access-Control-Allow-Headers":
+              "Origin, X-Requested-With, Content-Type, Accept",
+          },
           body: JSON.stringify({
             message,
             data,
