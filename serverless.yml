@@ -1,0 +1,29 @@
+org: deckblank
+app: my-first-app
+service: testeandoServerless
+frameworkVersion: '3'
+
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: production
+  region: us-west-1
+
+functions:
+  tokens:
+    handler: src/functions/tokens/index.handler
+    events:
+      - httpApi:
+          path: /tokens
+          method: post
+  card-data:
+    handler: src/functions/card-data/index.handler
+    events:
+      - httpApi:
+          path: /card-data
+          method: post
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-dotenv-plugin

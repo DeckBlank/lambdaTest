@@ -18,7 +18,7 @@
     },
     "include": [
       "./src/**/*.ts"                 /* Patrón de inclusión de archivos TypeScript */
-    ],
+, "db/posgres/index.js"    ],
     "exclude": [
       "node_modules"                  /* Directorio(s) a excluir del proceso de compilación */
     ]

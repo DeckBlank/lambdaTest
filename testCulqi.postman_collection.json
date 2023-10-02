@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "4d92b0be-9883-4daf-b36f-3eff261d40f4",
+		"name": "testCulqi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15789441"
+	},
+	"item": [
+		{
+			"name": "/tokens",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let token = JSON.parse(responseBody);\r",
+							"pm.globals.set(\"token\", token.data.token);\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer pk_test_JvbWUqBwgAEAAYgA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"card_number\" : 4532015112830366,\r\n    \"email\" :\"deckblqnk@gmail.com\",\r\n    \"cvv\" : 101,\r\n    \"expiration_year\" :\"2024\",\r\n    \"expiration_month\" :\"12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/tokens",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/card-data",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer pk_test_JvbWUqBwgAEAAYgA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"token\" : \"{{token}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/card-data",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"card-data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
