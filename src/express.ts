@@ -1,14 +1,31 @@
 import express, { Request, Response } from 'express';
+import { ALLOWED, APP_ENV } from './enviroment';
 
+import cors from 'cors';
 import { rateLimit } from 'express-rate-limit';
 import helmet from 'helmet';
 import http from 'http';
 import morgan from 'morgan';
-import { APP_ENV } from './enviroment';
 import { cardDataController } from './functions/card-data';
 import { tokenController } from './functions/tokens';
 
+const corsOptions = {
+  origin: (origin: any, callback: any) => {
+    if (ALLOWED === '*') return callback(null, true);
+    if (
+      (ALLOWED ? ALLOWED.split(',') : []).indexOf(origin) !== -1 ||
+      origin === undefined
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  optionsSuccessStatus: 200,
+};
+
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
