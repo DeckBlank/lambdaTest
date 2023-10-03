@@ -28,6 +28,6 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
-    'quotes': ['error', 'single'],
+    quotes: ['error', 'single'],
   },
 };

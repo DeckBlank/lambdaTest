@@ -13,9 +13,9 @@ export const Function = {
         return {
           statusCode: 200,
           headers: {
-            'Access-Control-Allow-Origin': '*', // Esto permite solicitudes desde cualquier origen
-            'Access-Control-Allow-Headers':
-              'Origin, X-Requested-With, Content-Type, Accept',
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
           },
           body: JSON.stringify({
             message,
@@ -23,9 +23,13 @@ export const Function = {
           }),
         };
       } catch (error: any) {
-        console.log(error);
         return {
           statusCode: 400,
+          headers: {
+            'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS,POST,GET',
+          },
           body: JSON.stringify({
             message: error.message,
           }),
