@@ -62,12 +62,26 @@ app.get('/', (req: Request, res: Response) => {
 app.post('/tokens', async (req: Request, res: Response) => {
   const headers = req.headers;
   const body = req.body;
-  res.json(await tokenController(JSON.stringify(body), headers));
+  try{
+    res.json(await tokenController(JSON.stringify(body), headers));
+  }
+  catch(error:any){
+    res.json({
+      message:error.message
+    });
+  }
 });
 app.post('/card-data', async (req: Request, res: Response) => {
   const headers = req.headers;
   const body = req.body;
-  res.json(await cardDataController(JSON.stringify(body), headers));
+  try{
+    res.json(await cardDataController(JSON.stringify(body), headers));
+  }
+  catch(error:any){
+    res.json({
+      message:error.message
+    });
+  }
 });
 
 const httpServer = http.createServer(app);
