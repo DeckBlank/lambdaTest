@@ -66,6 +66,7 @@ app.post('/tokens', async (req: Request, res: Response) => {
     res.json(await tokenController(JSON.stringify(body), headers));
   }
   catch(error:any){
+    res.status(400);
     res.json({
       message:error.message
     });
@@ -78,6 +79,7 @@ app.post('/card-data', async (req: Request, res: Response) => {
     res.json(await cardDataController(JSON.stringify(body), headers));
   }
   catch(error:any){
+    res.status(400);
     res.json({
       message:error.message
     });
